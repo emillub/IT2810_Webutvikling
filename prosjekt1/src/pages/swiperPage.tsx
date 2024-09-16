@@ -1,6 +1,9 @@
+// @ts-ignore
 import React, { useState } from 'react'
 import RecipeCard from '../components/recipeCard'
+// @ts-ignore
 import { useQuery, useQueryClient } from '@tanstack/react-query'
+// @ts-ignore
 import { fetchRandomMeal, mealInterface } from '../server/api'
 
 

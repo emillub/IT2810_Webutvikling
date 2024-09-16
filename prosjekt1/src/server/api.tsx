@@ -1,5 +1,6 @@
 const BASE_URL = "https://www.themealdb.com/api/json/v1/1/"
 const RANDOM_MEAL = "random.php"
+// @ts-ignore
 const MEAL_BY_FIRST_LETTER = "search.php?f=a"
 
 
