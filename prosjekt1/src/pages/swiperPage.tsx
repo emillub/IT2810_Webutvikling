@@ -1,22 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import RecipeCard from '../components/recipeCard'
-import { useQuery } from '@tanstack/react-query'
-import { fetchRandomMeal } from '../server/api'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { fetchRandomMeal, mealInterface } from '../server/api'
 
 
 const SwiperPage = () => {
-  const {data,isLoading} = useQuery({
-    queryKey: ["randomMeal"],
-    queryFn:fetchRandomMeal
+
+  const {data, refetch} = useQuery({
+    queryKey: ['meal'],
+    queryFn:  fetchRandomMeal,
+    staleTime: Infinity,
+    
   })
   
   const meal = data?.meals[0]
   return (
     <>
-    <RecipeCard meal={meal}>
-      
-    </RecipeCard>
+    {meal&& 
+    <RecipeCard meal={meal}/>}
+    <button onClick={()=>refetch()}>Left</button>
+    <button onClick={()=>refetch()}>Right</button>
     </>
+
   )
 }
 

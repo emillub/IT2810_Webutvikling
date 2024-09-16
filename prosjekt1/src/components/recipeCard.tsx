@@ -1,20 +1,16 @@
 import { mealInterface } from '../server/api'
 
 interface recipeCardProps {
-  meal : mealInterface  | undefined
+  meal: mealInterface
 }
 
-const RecipeCard = ({meal} : recipeCardProps ) => {
+const RecipeCard = ({ meal }: recipeCardProps) => {
   return (
     <>
-    {meal? 
-    <div className=''>
-      <img src={meal.strMealThumb} alt={meal.strMeal} />
-    </div>
-    :
-    <p>Loading...</p>}
+      <div className=''>
+        <img src={meal.strMealThumb} alt={meal.strMeal} />
+      </div>
     </>
-
   )
 }
 
