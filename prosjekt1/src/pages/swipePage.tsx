@@ -1,13 +1,13 @@
 // @ts-ignore
 import React, { useState } from 'react'
-import RecipeCard from '../components/recipeCard'
+import MovieCard from '../components/movieCard'
 // @ts-ignore
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 // @ts-ignore
-import { fetchRandomMeal, mealInterface } from '../server/api'
+import { fetchRandomMeal, movieApiInterface } from '../server/api'
 
 
-const SwiperPage = () => {
+const swipePage = () => {
 
   const {data, refetch} = useQuery({
     queryKey: ['meal'],
@@ -20,7 +20,7 @@ const SwiperPage = () => {
   return (
     <>
     {meal&& 
-    <RecipeCard meal={meal}/>}
+    <MovieCard meal={meal}/>}
     <button onClick={()=>refetch()}>Left</button>
     <button onClick={()=>refetch()}>Right</button>
     </>
@@ -28,4 +28,4 @@ const SwiperPage = () => {
   )
 }
 
-export default SwiperPage
+export default swipePage

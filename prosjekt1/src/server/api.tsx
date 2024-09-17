@@ -4,7 +4,7 @@ const RANDOM_MEAL = "random.php"
 const MEAL_BY_FIRST_LETTER = "search.php?f=a"
 
 
-export interface mealInterface {
+export interface movieApiInterface {
     idMeal: string
     strMeal: string,
     strCategory: string,
@@ -66,7 +66,7 @@ const baseFetch = async ({urlEnding} : fetchProps)=>{
     return fetch(BASE_URL+urlEnding).then((res)=>res.json())
 }
 
-export const fetchRandomMeal = (): Promise<{meals : mealInterface[]}> => {
+export const fetchRandomMeal = (): Promise<{meals : movieApiInterface[]}> => {
     return baseFetch({urlEnding : RANDOM_MEAL})
 }
 

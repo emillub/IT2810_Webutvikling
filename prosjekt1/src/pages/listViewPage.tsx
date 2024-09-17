@@ -1,7 +1,7 @@
 // @ts-ignore
 import React from 'react'
 // @ts-ignore
-import RecipeCard from '../components/recipeCard'
+import MovieCard from '../components/movieCard'
 
 const ListViewPage = () => {
   return (
