@@ -33,10 +33,10 @@ export interface genreApiInterface{
 }
 
 interface fetchTopRatedMoviesProps {
-    page : 1
+    page : number
 }
 
-const fetchTopRatedMovies = ({page} : fetchTopRatedMoviesProps) : Promise<{"page" : number, "results": movieApiInterface[]}> => {
+const fetchTopRatedMovies = ({page = 1} : fetchTopRatedMoviesProps) : Promise<{"page" : number, "results": movieApiInterface[]}> => {
     return fetch(topRatedMoviesURL(page), API_OPTIONS).then(res => res.json())
 }
 
