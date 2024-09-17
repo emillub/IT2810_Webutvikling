@@ -4,11 +4,10 @@ interface movieCardProps {
   meal: movieApiInterface
 }
 
-const MovieCard = ({ meal }: movieCardProps) => {
+const MovieCard = ({ meal: movie }: movieCardProps) => {
   return (
     <>
       <div className=''>
-        <img src={meal.strMealThumb} alt={meal.strMeal} />
       </div>
     </>
   )
