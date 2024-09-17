@@ -6,8 +6,9 @@
     max-width: fit-content;
     height: fit-content;
     border-radius: 8px;
-    border: rgba(173, 1, 1, 0) 1px solid;
+    border: rgba(173, 1, 1, 0) 4px solid;
     padding: 0;
+    transition: border 0.1s linear;
 }
 
 .movie-container .movie-title {
@@ -16,7 +17,7 @@
 }
 
 .movie-container:hover{
-    border: rgb(173, 1, 1) 1px solid;
+    border: rgb(37, 37, 37) 4px solid;
     cursor: pointer;
 }
 

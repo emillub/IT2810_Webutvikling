@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/Like.css';
 interface LikeButtonProps {
-  itemId: string;
+  itemId: number;
 }
 
 const LikeButton: React.FC<LikeButtonProps> = ({ itemId }) => {
