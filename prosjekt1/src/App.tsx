@@ -4,7 +4,6 @@ import SwipePage from './pages/swipePage'
 import ListViewPage from './pages/listViewPage'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout';
-import Navbar from './components/navbar';
 
 const queryClient = new QueryClient()
 
@@ -16,10 +15,10 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
         <Router>
-          <Routes>
-            <Route path={baseUrl + "/"} element={<Layout content={<SwipePage />} />} />
-            <Route path={baseUrl + "/listViewPage"} element={<Layout content={<ListViewPage />} />} />
-          </Routes>
+            <Routes>
+            <Route path={baseUrl + "/"} element={<Layout content={<SwipePage/>}/>} />
+            <Route path={baseUrl + "/listViewPage"} element={<Layout content={<ListViewPage/>}/>} />
+            </Routes>
         </Router>
       </QueryClientProvider>
     </>
