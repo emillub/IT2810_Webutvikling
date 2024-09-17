@@ -1,10 +1,9 @@
-import './App.css'
+import './styles/App.css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import swipePage from './pages/swipePage'
+import SwipePage from './pages/swipePage'
 import ListViewPage from './pages/listViewPage'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Layout from './components/Layout';
-import Header from './components/Header';
+import Layout from './components/layout';
 
 const queryClient = new QueryClient()
 
@@ -16,9 +15,8 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
         <Router>
-          <Header />
             <Routes>
-            <Route path={baseUrl + "/"} element={<Layout content={<swipePage />}/>} />
+            <Route path={baseUrl + "/"} element={<Layout content={<SwipePage/>}/>} />
             <Route path={baseUrl + "/listViewPage"} element={<Layout content={<ListViewPage/>}/>} />
             </Routes>
         </Router>
