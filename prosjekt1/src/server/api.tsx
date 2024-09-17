@@ -3,17 +3,17 @@ const RANDOM_MEAL = "random.php"
 
 
 export interface movieApiInterface {
-    backdrop_path: String,
+    backdrop_path: string,
     id: number,
-    title: String,
-    original_title: String,
-    overview: String,
-    poster_path: String,
+    title: string,
+    original_title: string,
+    overview: string,
+    poster_path: string,
     adult: boolean,
-    original_language: String,
+    original_language: string,
     genre_ids: number[],
     popularity: number,
-    release_date: String,
+    release_date: string,
     vote_average: number,
     vote_count: number
 }

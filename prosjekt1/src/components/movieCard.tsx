@@ -1,13 +1,16 @@
 import { movieApiInterface } from '../server/api'
 
 interface movieCardProps {
-  meal: movieApiInterface
+  movie: movieApiInterface
 }
 
-const MovieCard = ({ meal: movie }: movieCardProps) => {
+const MovieCard = ({ movie}: movieCardProps) => {
+
   return (
     <>
-      <div className=''>
+      <div className='movie-container'>
+        <h1>{movie.title}</h1>
+        <img src={movie.poster_path} alt={movie.title} />
       </div>
     </>
   )

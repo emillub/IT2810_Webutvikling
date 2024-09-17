@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/Header.css'
+import '../styles/navbar.css'
 
-const Header: React.FC = () => {
+const Navbar: React.FC = () => {
     return (
         <header>
             <nav>
@@ -14,4 +14,4 @@ const Header: React.FC = () => {
     );
 };
 
-export default Header;
+export default Navbar;
