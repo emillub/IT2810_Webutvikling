@@ -13,7 +13,6 @@ body{
     font-size: 1.8rem;
     text-align: center;
     font-weight: 500;
-
 }
 
 .page-instructions{
@@ -21,4 +20,5 @@ body{
     text-align: center;
     color: gray;
     font-weight: normal;
+    margin-bottom: 12px;
 }

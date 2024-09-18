@@ -37,7 +37,7 @@ const SwipePage = () => {
 
   return (
     <>
-    <Header title={'View movies one by one'} instructions='Clock on a movie for details about it'/>
+    <Header title={'Preview movies one by one'} instructions='Click on a movie for details about it'/>
       <div className='swipe-container'>
         {isLoading ?
           <p>Loading....</p> :
