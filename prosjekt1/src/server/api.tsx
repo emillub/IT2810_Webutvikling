@@ -41,7 +41,7 @@ export const fetchTopRatedMovies = async ({page = 1} : fetchTopRatedMoviesProps)
     return await res.json();
 }
 
-export const fetchMovieGenres = async () : Promise<{"genres" : genreApiInterface}> =>{
+export const fetchMovieGenres = async () : Promise<{"genres" : genreApiInterface[]}> =>{
     const res = await fetch(GENRE_LIST_URL, API_OPTIONS);
     return await res.json();
 }

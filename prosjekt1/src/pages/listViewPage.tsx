@@ -2,7 +2,7 @@ import MovieCard from '../components/movieCard'
 import "../styles/listViewPage.css"
 import { fetchTopRatedMovies, movieApiInterface } from '../server/api'
 import { useQuery } from '@tanstack/react-query'
-
+import FilterDropdown from '../components/filterDropdown'
 
 const ListViewPage = () => {
 
@@ -12,6 +12,7 @@ const ListViewPage = () => {
     refetchOnMount: true,
   })
 
+  
   const dummyMovie: movieApiInterface = {
     backdrop_path: "",
     id: 0,
@@ -31,7 +32,9 @@ const ListViewPage = () => {
 
   return (
     <>
-      <h1>All recipes</h1>
+    
+      <h1>Movies</h1>
+      <FilterDropdown/>
       {
         isLoading?
         <p>Loading...</p>
