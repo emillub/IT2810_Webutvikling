@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import MovieCard from '../components/movieCard'
-import {useTopRatedMovies } from '../server/api'
+import { useTopRatedMovies } from '../server/api'
 import '../styles/swipepage.css'
 
 
@@ -10,16 +10,16 @@ const SwipePage = () => {
   const handleClick = (left: boolean) => {
     console.log("before: " + sessionStorage.getItem("index"))
     let newIndex;
-    {left? newIndex = index-1 : newIndex = index+1}
+    { left ? newIndex = index - 1 : newIndex = index + 1 }
 
     if (!data) return
-    const rangeLimit = data.results.length-1
-    if  (newIndex < 0) {
+    const rangeLimit = data.results.length - 1
+    if (newIndex < 0) {
       newIndex = rangeLimit
-    }else if (newIndex > rangeLimit){
+    } else if (newIndex > rangeLimit) {
       newIndex = 0
     }
-    
+
     setIndex(newIndex);
     sessionStorage.setItem("index", newIndex.toString())
 
@@ -32,17 +32,31 @@ const SwipePage = () => {
     }
   }, [])
 
-  const { data } = useTopRatedMovies()
+  const { data, isLoading, isError, error } = useTopRatedMovies()
 
   return (
-    <div className='swipe-container'>
-      {data && <MovieCard movie={data.results[index]} />}
-      <nav className='swipe-navigation'>
-        <button onClick={() => handleClick(true)}>left</button>
-        <p>Showing {index + 1}/{data?.results.length}</p>
-        <button onClick={() => handleClick(false)}>Right</button>
-      </nav>
-    </div>
+    <>
+      <h1 className='page-title'>View movies one by one!</h1>
+      <h2 className='page-instructions'>Click on a movie for details about it</h2>
+      <div className='swipe-container'>
+        {isLoading ?
+          <p>Loading....</p> :
+          <>
+            {isError ? error :
+              <>
+                {data && <MovieCard movie={data.results[index]} />}
+                <nav className='swipe-navigation'>
+                  <button onClick={() => handleClick(true)} aria-label='Previous movie'>Previous</button>
+                  <p>Showing {index + 1}/{data?.results.length}</p>
+                  <button onClick={() => handleClick(false)} aria-label='Next movie'>Next</button>
+                </nav>
+              </>
+            }
+          </>
+        }
+      </div>
+    </>
+
   )
 }
 

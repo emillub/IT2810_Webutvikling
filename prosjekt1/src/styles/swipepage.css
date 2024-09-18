@@ -1,7 +1,7 @@
 .swipe-container {
     height: fit-content;
     width: fit-content;
-    margin: auto;
+    margin: 12px auto;
 }
 
 .swipe-navigation{
