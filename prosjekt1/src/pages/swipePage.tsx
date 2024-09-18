@@ -44,12 +44,12 @@ const SwipePage = () => {
           <>
             {isError ? error :
               <>
-                {data && <MovieCard movie={data.results[index]} />}
                 <nav className='swipe-navigation'>
-                  <button onClick={() => handleClick(true)} aria-label='Previous movie'>Previous</button>
-                  <p>Showing {index + 1}/{data?.results.length}</p>
-                  <button onClick={() => handleClick(false)} aria-label='Next movie'>Next</button>
+                  <button className="swipe-button" onClick={() => handleClick(true)} aria-label='Previous movie'>&lt;</button>
+                  {data && <MovieCard movie={data.results[index]} />}
+                  <button className="swipe-button" onClick={() => handleClick(false)} aria-label='Next movie'>&gt;</button>
                 </nav>
+                <p className='swipe-text'>Showing {index + 1}/{data?.results.length}</p>
               </>
             }
           </>
