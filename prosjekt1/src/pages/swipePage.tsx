@@ -10,17 +10,14 @@ import { fetchRandomMeal, movieApiInterface } from '../server/api'
 const swipePage = () => {
 
   const {data, refetch} = useQuery({
-    queryKey: ['meal'],
-    queryFn:  fetchRandomMeal,
+    queryKey: [],
+    queryFn:  ()=>{},
     staleTime: Infinity,
     
   })
   
-  const meal = data?.meals[0]
   return (
     <>
-    {meal&& 
-    <MovieCard meal={meal}/>}
     <button onClick={()=>refetch()}>Left</button>
     <button onClick={()=>refetch()}>Right</button>
     </>
