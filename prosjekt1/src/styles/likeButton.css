@@ -1,4 +1,4 @@
-.like-button {
+.movie-container .like-button {
     background-color: rgba(0, 0, 0, 0.4);
     border: none;
     border-top: 2px solid rgba(255, 255, 255, 0.4);
@@ -6,9 +6,13 @@
     outline: none;
     font-size: 24px;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.05s;
   }
   
   .movie-poster-container:hover .like-button {
     opacity: 1;
   }
+
+.like-button:hover {
+  cursor: pointer;
+}
