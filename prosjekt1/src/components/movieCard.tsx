@@ -1,4 +1,4 @@
-import { movieApiInterface } from '../server/api'
+import { BASE_IMAGE_URL, movieApiInterface } from '../server/api'
 import "../styles/movieCard.css"
 import LikeButton from './likeButton'
 
@@ -9,13 +9,16 @@ interface movieCardProps {
 const MovieCard = ({ movie}: movieCardProps) => {
   return (
     <>
-      <div className='movie-container'>
+      <article className='movie-container'>
         <h2 className='movie-title'>{movie.title}</h2>
-        <a href="">
-          <img src={movie.poster_path} alt={movie.title} className='movie-poster'/>
+        <div className='movie-poster-container'>
+          <a href="">
+
+          <img src={BASE_IMAGE_URL+movie.poster_path} alt={movie.title} className='movie-poster'/>
+          </a>
           <LikeButton itemId={movie.id}/>
-        </a>
-      </div>
+        </div>
+      </article>
     </>
   )
 }

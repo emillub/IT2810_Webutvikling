@@ -1,11 +1,18 @@
-// @ts-ignore
-import React from 'react'
-// @ts-ignore
 import MovieCard from '../components/movieCard'
-import { movieApiInterface } from '../server/api'
+import "../styles/listViewPage.css"
+import { fetchTopRatedMovies, movieApiInterface } from '../server/api'
+import { useQuery } from '@tanstack/react-query'
+
 
 const ListViewPage = () => {
-  const dummyMovie : movieApiInterface= {
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["movies"],
+    queryFn: () => fetchTopRatedMovies({ page: 1 }),
+    refetchOnMount: true,
+  })
+
+  const dummyMovie: movieApiInterface = {
     backdrop_path: "",
     id: 0,
     title: "The movie",
@@ -14,17 +21,28 @@ const ListViewPage = () => {
     poster_path: "https://image.tmdb.org/t/p//w300/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
     adult: false,
     original_language: "en",
-    genre_ids: [28,35],
+    genre_ids: [28, 35],
     popularity: 0,
     release_date: "",
     vote_average: 0,
     vote_count: 0
   }
 
+
   return (
     <>
-    <h1>All recipes</h1>
-    <MovieCard movie={dummyMovie}/>
+      <h1>All recipes</h1>
+      {
+        isLoading?
+        <p>Loading...</p>
+        :
+        <div className='movie-grid'>
+        {data &&
+          data.results.map((m, i) => (
+            <MovieCard movie={m} key={i} />
+          ))}
+      </div>
+      }
     </>
   )
 }

@@ -1,16 +1,16 @@
 import './styles/App.css'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
 import SwipePage from './pages/swipePage'
 import ListViewPage from './pages/listViewPage'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout';
+import { fetchTopRatedMovies } from './server/api';
 
 const queryClient = new QueryClient()
 
 function App() {
 
   const baseUrl: string = "/project1";
-
   return (
     <>
       <QueryClientProvider client={queryClient}>
