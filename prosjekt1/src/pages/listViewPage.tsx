@@ -31,31 +31,35 @@ const ListViewPage = () => {
 
 
   return (
-    <>
+        <>
 
       <Header title={'Scroll through top rated movies'} instructions='Click on a movie for details about it'/>
        <FilterDropdown />
+
       {
         isLoading ?
           <p>Loading...</p>
           :
+          <>
           {isError ? { error } :
-              <section className='movie-grid'>
-            {data && (
-              data.results
-                .filter((m) => m.genre_ids.includes(filter) || filter === 0)
+            <section className='movie-grid'>
+
+              {data && (
+                data.results
+                  .filter((m) => m.genre_ids.includes(filter) || filter === 0)
 
 
-                .map((m, i) => (
-                  <MovieCard movie={m} key={i} />
-                )))}
+                  .map((m, i) => (
+                    <MovieCard movie={m} key={i} />
+              )))}
 
-            {data && data.results.filter((m) => m.genre_ids.includes(filter) || filter === 0).length === 0 && (
-              <p>No movies match the selected filter.</p>
-            )
-            }
-            
-          </section>
+              {data && data.results.filter((m) => m.genre_ids.includes(filter) || filter === 0).length === 0 && (
+                <p>No movies match the selected filter.</p>
+              )}
+
+            </section>
+          }
+          </>
       }
     </>
   )
