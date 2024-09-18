@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import MovieCard from '../components/movieCard'
 import {useTopRatedMovies } from '../server/api'
+import '../styles/swipepage.css'
 
 
 const SwipePage = () => {
@@ -36,9 +37,11 @@ const SwipePage = () => {
   return (
     <div className='swipe-container'>
       {data && <MovieCard movie={data.results[index]} />}
-      <button onClick={() => handleClick(true)}>left</button>
-      <p>Showing {index + 1}/{data?.results.length}</p>
-      <button onClick={() => handleClick(false)}>Right</button>
+      <nav className='swipe-navigation'>
+        <button onClick={() => handleClick(true)}>left</button>
+        <p>Showing {index + 1}/{data?.results.length}</p>
+        <button onClick={() => handleClick(false)}>Right</button>
+      </nav>
     </div>
   )
 }

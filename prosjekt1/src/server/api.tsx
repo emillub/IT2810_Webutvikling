@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-export const BASE_IMAGE_URL = "https://image.tmdb.org/t/p//w300"
+export const BASE_IMAGE_URL = "https://image.tmdb.org/t/p//w500"
 const topRatedMoviesURL = (page : number)=>{return `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${page}`}
 const GENRE_LIST_URL = "https://api.themoviedb.org/3/genre/movie/list"
 
