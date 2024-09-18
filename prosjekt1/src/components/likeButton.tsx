@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/likeButton.css';
 interface LikeButtonProps {
   itemId: number;
 }
@@ -20,8 +21,8 @@ const LikeButton: React.FC<LikeButtonProps> = ({ itemId }) => {
   };
 
   return (
-    <button onClick={toggleLike} className={liked ? 'liked' : ''}>
-      {liked ? 'Unlike' : 'Like'}
+    <button onClick={toggleLike} className={`like-button ${liked ? 'liked' : 'unliked'}`}>
+      {liked ? '❤️' : '🤍'}
     </button>
   );
 };

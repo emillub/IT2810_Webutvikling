@@ -1,20 +1,17 @@
 import MovieCard from '../components/movieCard'
 import "../styles/listViewPage.css"
-import { fetchTopRatedMovies, movieApiInterface } from '../server/api'
+import { fetchTopRatedMovies, movieApiInterface, useTopRatedMovies } from '../server/api'
 import { useQuery } from '@tanstack/react-query'
 import FilterDropdown from '../components/filterDropdown'
 import { useFilter } from '../contexts/filterContext'
+import Header from '../components/header'
 
 const ListViewPage = () => {
 
   const { filter } = useFilter()
 
-  const { data, isLoading } = useQuery({
-    queryKey: ["movies"],
-    queryFn: () => fetchTopRatedMovies({ page: 1 }),
-    refetchOnMount: true,
-  })
-
+  const { data, isLoading, isError, error } = useTopRatedMovies()
+ 
 
   const dummyMovie: movieApiInterface = {
     backdrop_path: "",
@@ -36,14 +33,14 @@ const ListViewPage = () => {
   return (
     <>
 
-      <h1>Movies</h1>
-      <FilterDropdown />
+      <Header title={'Scroll through top rated movies'} instructions='Click on a movie for details about it'/>
+       <FilterDropdown />
       {
         isLoading ?
           <p>Loading...</p>
           :
-          <div className='movie-grid'>
-
+          {isError ? { error } :
+              <section className='movie-grid'>
             {data && (
               data.results
                 .filter((m) => m.genre_ids.includes(filter) || filter === 0)
@@ -58,7 +55,7 @@ const ListViewPage = () => {
             )
             }
             
-          </div>
+          </section>
       }
     </>
   )

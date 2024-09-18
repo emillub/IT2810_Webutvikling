@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: fit-content;
+    max-width: 300px;
     height: fit-content;
     overflow: hidden;
 }
@@ -14,17 +14,20 @@
 
 
 .movie-container .movie-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0;
     margin: 0;
-    height: 2.5rem;
+    height: 2.6rem;
     width: 100%;
-    font-size: calc(100%);
+    font-size: 1.2rem;
     text-align: center;
 }
 
-@media screen and (min-width:600px){
+@media screen and (max-width:600px){
     .movie-title{
-        display: none;
+        font-size: 14px;
     }
 }
 
