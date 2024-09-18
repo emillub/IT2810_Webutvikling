@@ -1,11 +1,12 @@
 import MovieCard from '../components/movieCard'
 import "../styles/listViewPage.css"
 import { fetchTopRatedMovies, movieApiInterface, useTopRatedMovies } from '../server/api'
+import Header from '../components/header'
 
 
 const ListViewPage = () => {
 
-  const {data, isLoading} = useTopRatedMovies()
+  const { data, isLoading, isError, error } = useTopRatedMovies()
 
   const dummyMovie: movieApiInterface = {
     backdrop_path: "",
@@ -26,17 +27,21 @@ const ListViewPage = () => {
 
   return (
     <>
-      <h1>All recipes</h1>
+      <Header title={'Scroll through top rated movies'} instructions='Click on a movie for details about it'/>
       {
-        isLoading?
-        <p>Loading...</p>
-        :
-        <div className='movie-grid'>
-        {data &&
-          data.results.map((m, i) => (
-            <MovieCard movie={m} key={i} />
-          ))}
-      </div>
+        isLoading ?
+          <p>Loading...</p>
+          :
+          <>
+            {isError ? { error } :
+              <section className='movie-grid'>
+                {data &&
+                  data.results.map((m, i) => (
+                    <MovieCard movie={m} key={i} />
+                  ))}
+              </section>
+            }
+          </>
       }
     </>
   )

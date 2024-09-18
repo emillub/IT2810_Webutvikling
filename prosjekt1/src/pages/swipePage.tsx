@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import MovieCard from '../components/movieCard'
 import { useTopRatedMovies } from '../server/api'
 import '../styles/swipepage.css'
+import Header from '../components/header'
 
 
 const SwipePage = () => {
@@ -36,8 +37,7 @@ const SwipePage = () => {
 
   return (
     <>
-      <h1 className='page-title'>View movies one by one!</h1>
-      <h2 className='page-instructions'>Click on a movie for details about it</h2>
+    <Header title={'Preview movies one by one'} instructions='Click on a movie for details about it'/>
       <div className='swipe-container'>
         {isLoading ?
           <p>Loading....</p> :
