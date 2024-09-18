@@ -12,7 +12,7 @@ const { data, isLoading } = useQuery({
 });
 
   return (
-    <select name="filterDropDownMenu" id="filterDropDownMenu">
+    <select name="filterDropdown" id="filterDropdown">
         {data?.genres.map((obj) => (<option value={obj.id}>{obj.name}</option>))}
     </select>
   )

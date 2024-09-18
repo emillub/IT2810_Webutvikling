@@ -33,7 +33,7 @@ const ListViewPage = () => {
   return (
     <>
     
-      <h1>Movies</h1>
+      <h1 id='listViewHeader'>Movies</h1>
       <FilterDropdown/>
       {
         isLoading?
