@@ -1,16 +1,11 @@
 import MovieCard from '../components/movieCard'
 import "../styles/listViewPage.css"
-import { fetchTopRatedMovies, movieApiInterface } from '../server/api'
-import { useQuery } from '@tanstack/react-query'
+import { fetchTopRatedMovies, movieApiInterface, useTopRatedMovies } from '../server/api'
 
 
 const ListViewPage = () => {
 
-  const { data, isLoading } = useQuery({
-    queryKey: ["movies"],
-    queryFn: () => fetchTopRatedMovies({ page: 1 }),
-    refetchOnMount: true,
-  })
+  const {data, isLoading} = useTopRatedMovies()
 
   const dummyMovie: movieApiInterface = {
     backdrop_path: "",

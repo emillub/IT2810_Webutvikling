@@ -1,3 +1,5 @@
+import { useQuery } from "@tanstack/react-query";
+
 export const BASE_IMAGE_URL = "https://image.tmdb.org/t/p//w300"
 const topRatedMoviesURL = (page : number)=>{return `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${page}`}
 const GENRE_LIST_URL = "https://api.themoviedb.org/3/genre/movie/list"
@@ -45,3 +47,10 @@ export const fetchMovieGenres = async () : Promise<{"genres" : genreApiInterface
     const res = await fetch(GENRE_LIST_URL, API_OPTIONS);
     return await res.json();
 }
+
+export const useTopRatedMovies = () => useQuery({
+    queryKey: ["movies"],
+    queryFn: () => fetchTopRatedMovies({ page: 1 }),
+    refetchOnMount: false,
+    staleTime: Infinity
+  })
