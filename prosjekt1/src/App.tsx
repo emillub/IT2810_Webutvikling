@@ -4,6 +4,7 @@ import SwipePage from './pages/swipePage'
 import ListViewPage from './pages/listViewPage'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout';
+import {FilterProvider} from './contexts/filterContext';
 
 const queryClient = new QueryClient()
 
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <>
+      <FilterProvider>
       <QueryClientProvider client={queryClient}>
         <Router>
             <Routes>
@@ -21,6 +23,7 @@ function App() {
             </Routes>
         </Router>
       </QueryClientProvider>
+      </FilterProvider>
     </>
     );
   }
