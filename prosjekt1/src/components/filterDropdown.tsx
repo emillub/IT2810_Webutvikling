@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { fetchMovieGenres } from '../server/api'
 import { useFilter } from '../contexts/filterContext'
@@ -6,7 +6,7 @@ import { useFilter } from '../contexts/filterContext'
 export default function FilterDropdown() {
   const { setFilter } = useFilter()
 
-  const { data, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ["genres"],
     queryFn: fetchMovieGenres,
     refetchOnMount: true,
