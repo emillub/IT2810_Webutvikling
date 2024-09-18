@@ -4,3 +4,21 @@
     margin: 0;
     font-family: 'Inter',Verdana, Geneva, Tahoma, sans-serif;
 }
+
+body{
+    background-color: antiquewhite;
+}
+
+.page-title{
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: 500;
+
+}
+
+.page-instructions{
+    font-size: 1rem;
+    text-align: center;
+    color: gray;
+    font-weight: normal;
+}

@@ -1,0 +1,12 @@
+.swipe-container {
+    height: fit-content;
+    width: fit-content;
+    margin: 12px auto;
+}
+
+.swipe-navigation{
+    width: 100%;
+    display: flex;
+    margin-top: 16px;
+    justify-content: space-between;
+}
