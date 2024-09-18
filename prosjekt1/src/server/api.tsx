@@ -1,4 +1,4 @@
-const BASE_IMAGE_URL = "https://image.tmdb.org/t/p//w300"
+export const BASE_IMAGE_URL = "https://image.tmdb.org/t/p//w300"
 const topRatedMoviesURL = (page : number)=>{return `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${page}`}
 const GENRE_LIST_URL = "https://api.themoviedb.org/3/genre/movie/list"
 
@@ -36,10 +36,12 @@ interface fetchTopRatedMoviesProps {
     page : number
 }
 
-const fetchTopRatedMovies = ({page = 1} : fetchTopRatedMoviesProps) : Promise<{"page" : number, "results": movieApiInterface[]}> => {
-    return fetch(topRatedMoviesURL(page), API_OPTIONS).then(res => res.json())
+export const fetchTopRatedMovies = async ({page = 1} : fetchTopRatedMoviesProps) : Promise<{"page" : number, "results": movieApiInterface[]}> => {
+    const res = await fetch(topRatedMoviesURL(page), API_OPTIONS);
+    return await res.json();
 }
 
-const fetchMovieGenres = () : Promise<{"genres" : genreApiInterface}> =>{
-    return fetch(GENRE_LIST_URL,API_OPTIONS).then(res => res.json());
+export const fetchMovieGenres = async () : Promise<{"genres" : genreApiInterface}> =>{
+    const res = await fetch(GENRE_LIST_URL, API_OPTIONS);
+    return await res.json();
 }
