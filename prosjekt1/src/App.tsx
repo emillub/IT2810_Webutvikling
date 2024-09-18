@@ -3,8 +3,10 @@ import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-quer
 import SwipePage from './pages/swipePage'
 import ListViewPage from './pages/listViewPage'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Layout from './components/layout';
+
 import { fetchTopRatedMovies } from './server/api';
+import MoviePage from './pages/moviePage';
+import Layout from './components/Layout';
 
 const queryClient = new QueryClient()
 
@@ -18,6 +20,7 @@ function App() {
             <Routes>
             <Route path={baseUrl + "/"} element={<Layout content={<SwipePage/>}/>} />
             <Route path={baseUrl + "/listViewPage"} element={<Layout content={<ListViewPage/>}/>} />
+            <Route path={baseUrl + "/movie/:movieId"} element={<Layout content={<MoviePage/>}/>} />
             </Routes>
         </Router>
       </QueryClientProvider>

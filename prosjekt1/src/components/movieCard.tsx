@@ -12,7 +12,7 @@ const MovieCard = ({ movie}: movieCardProps) => {
       <article className='movie-container'>
         <h2 className='movie-title'>{movie.title}</h2>
         <div className='movie-poster-container'>
-          <a href="">
+          <a href={`/project1/movie/${movie.id}`}>
 
           <img src={BASE_IMAGE_URL+movie.poster_path} alt={movie.title} className='movie-poster'/>
           </a>
