@@ -54,7 +54,7 @@ const ListViewPage = () => {
               )))}
 
               {data && data.results.filter((m) => m.genre_ids.includes(filter) || filter === 0).length === 0 && (
-                <p>No movies match the selected filter.</p>
+                <p className='noMatches'>No movies match the selected filter.</p>
               )}
 
             </section>
