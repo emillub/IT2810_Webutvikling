@@ -7,7 +7,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { fetchRandomMeal, movieApiInterface } from '../server/api'
 
 
-const swipePage = () => {
+const SwipePage = () => {
 
   const {data, refetch} = useQuery({
     queryKey: [],
@@ -25,4 +25,4 @@ const swipePage = () => {
   )
 }
 
-export default swipePage
+export default SwipePage

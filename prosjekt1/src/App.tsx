@@ -22,7 +22,7 @@ function App() {
         </Router>
       </QueryClientProvider>
     </>
-    );
-  }
+  );
+}
 
 export default App
