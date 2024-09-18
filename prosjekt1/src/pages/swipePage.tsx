@@ -5,15 +5,20 @@ import {useTopRatedMovies } from '../server/api'
 
 const SwipePage = () => {
   const [index, setIndex] = useState(0)
+
   const handleClick = (left: boolean) => {
     console.log("before: " + sessionStorage.getItem("index"))
     let newIndex;
-    if (left && index > 0) {
-      newIndex = index - 1
+    {left? newIndex = index-1 : newIndex = index+1}
+
+    if (!data) return
+    const rangeLimit = data.results.length-1
+    if  (newIndex < 0) {
+      newIndex = rangeLimit
+    }else if (newIndex > rangeLimit){
+      newIndex = 0
     }
-    else {
-      newIndex = index + 1
-    }
+    
     setIndex(newIndex);
     sessionStorage.setItem("index", newIndex.toString())
 
