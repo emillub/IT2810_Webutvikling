@@ -10,7 +10,7 @@ import { fetchRandomMeal, movieApiInterface } from '../server/api'
 const SwipePage = () => {
 
   const {data, refetch} = useQuery({
-    queryKey: ['meal'],
+    queryKey: [],
     queryFn:  ()=>{},
     staleTime: Infinity,
     
