@@ -8,7 +8,10 @@ interface FilterContextProps {
 const FilterContext = createContext<FilterContextProps | undefined>(undefined);
 
 export const FilterProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [filter, setFilter] = useState<number>(0);
+    
+    const savedFilter = Number(sessionStorage.getItem("filter")) || 0;
+
+    const [filter, setFilter] = useState<number>(savedFilter);
 
     return (
         <FilterContext.Provider value={{ filter, setFilter }}>
