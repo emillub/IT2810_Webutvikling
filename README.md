@@ -1,29 +1,59 @@
 # T16-Project-1
-Project introduction:
-    Team 16 have decided to create a webpage for viewing the 20 top rated movies from imdb, based on the REST API of the movie database: https://www.themoviedb.org/. The webpage includes three pages: project1/, project1/listViewPage and project1/movie/:movieId. The landing page and the list view page are connected through a navbar, and each movie can be clicked to view more information about the selected movie.
 
-How to run:
-    Locally:
-    To run the project locally, pull the code from the main branch in the project github: https://git.ntnu.no/IT2810-H24/T16-Project-1/tree/main.
-    Open terminal and run the command: npm run dev
-    This should give you this line: 
-        Local:   http://localhost:5173/project1
-    Go to: http://localhost:5173/project1
+## Project Introduction
+Team 16 has created a webpage for viewing the top 20 rated movies from IMDb, using The Movie Database (TMDb) REST API: [The Movie Database](https://www.themoviedb.org/). The webpage consists of three main pages:
+- **Landing Page**: `/project1/`
+- **List View Page**: `/project1/listViewPage`
+- **Movie Detail Page**: `/project1/movie/:movieId`
 
-    VM:
-    Go to: http://it2810-16.idi.ntnu.no/project1/. The project is hosted on a webserver on our VM.
+The **Landing Page** and **List View Page** are connected via a navigation bar, and users can click on any movie to view more detailed information.
 
-Project pages, including how to use and session/local storage:
-    Landing page/"Swipes":
-    The landing page/"Swipes" page allows the user to view movie posters one by one by using the arrows buttons, with the option to favourite each movie when hovering and to view more info by clicking the movie poster. Which movie is "active" in this page is stored in sessionStorage, meaning the user will not be sent back to the first movie unless they close the tab.
+## How to Run the Project
 
-    List view/"All movies":
-    The list view/"All movies" page shows all 20 movies by default, and allows the user to filter on category and also favourite each movie when hovering and to view more info by clicking the movie poster. The filter is stored in sessionStorage, meaning the filter will stay active until the user close the tab.
+### Running Locally
+1. Clone the project from the GitHub repository: [T16-Project-1](https://git.ntnu.no/IT2810-H24/T16-Project-1/tree/main).
+2. Open a terminal and run the following command:
+    ```sh
+    npm run dev
+    ```
+3. The terminal should output: http://localhost:5173/project1
+4. Open your browser and go to: [http://localhost:5173/project1](http://localhost:5173/project1)
 
-    Movie page:
-    The movie page allows the user to view more info about the movie, in addition to allowing the user to favourite the movie.
+### Running on the VM
+The project is hosted on a web server on our Virtual Machine (VM). To access it:
+- Go to: [http://it2810-16.idi.ntnu.no/project1/](http://it2810-16.idi.ntnu.no/project1/)
 
-    Local storage:
-    Whether a movie is favourited or not is stored in localStorage, meaning each user will have their own favorited movies stored as favourites.
+## Project Pages and Storage Usage
 
-Testing:
+### 1. Landing Page ("Swipes")
+- The **Landing Page** (also called the "Swipes" page) allows users to view movie posters one by one using arrow buttons.
+- Each movie can be favorited by hovering over the poster, and more information can be accessed by clicking the poster.
+- The current "active" movie is stored in `sessionStorage`, ensuring that users will not be sent back to the first movie unless they close the tab.
+
+### 2. List View Page ("All Movies")
+- The **List View Page** shows all 20 movies by default.
+- Users can filter movies by category, favorite movies by hovering over the poster, and view detailed information by clicking the poster.
+- The selected filter is stored in `sessionStorage`, ensuring the filter remains active until the user closes the tab.
+
+### 3. Movie Page
+- The **Movie Detail Page** provides more information about a selected movie.
+- Users can also favorite the movie directly from this page.
+
+### Local Storage for Favorites
+- Whether a movie is favorited or not is stored in `localStorage`, meaning each user will have their favorite movies saved across sessions.
+
+## Testing
+The website uses a framework called **Vitest** to make sure that each part of the website behaves as intended. This includes tests of different kinds such as:
+- **Snapshot tests**: Takes a "snapshot" of the initial state and compares later instances of the page or component to the initial state to ensure consistency. 
+- **Prop tests**: Checks that components work as intended when receiving data from other parts of the code.
+- **State tests**: Makes sure that the state of the component responds accordingly when the website is interacted with.
+- **Mocking**: To make sure that testing the page doesn't overload the API from which the website pulls its data, **mocks** are used, a technique that lets the website be rendered with "fake" data, only used for testing.
+
+In addition, the website has also been tested manually, with different devices to make sure that it works for users across all platforms. 
+
+### Running tests
+To run the tests, simply navigate to the terminal and input the command:
+```sh
+npm run test
+```
+
