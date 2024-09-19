@@ -22,3 +22,8 @@ body{
     font-weight: normal;
     margin-bottom: 12px;
 }
+
+.error-message, .loading-message{
+    margin-top: 12px;
+    text-align: center;
+}
