@@ -11,6 +11,17 @@
     margin: 24px auto;
 }
 
+.movie-grid > *:only-child {
+    grid-column: span 2; /* Adjust this value as needed */
+    justify-self: center; /* Center the single item */
+}
+
+.movie-grid > *:nth-child(2):nth-last-child(1),
+.movie-grid > *:nth-child(1):nth-last-child(2) {
+    grid-column: span 1; /* Adjust this value as needed */
+    justify-self: center; /* Center the two items */
+}
+
 .noMatches{
     text-align: center;
     margin-top: 5%;
