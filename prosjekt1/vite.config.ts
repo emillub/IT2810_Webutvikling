@@ -8,7 +8,7 @@ plugins: [react()],
 test :{
     globals: true,
     environment : "jsdom",
-    setupFiles: "./tests/setup" 
+    setupFiles: "./tests/setup.ts" 
   },
   base: '/project1',
 })
