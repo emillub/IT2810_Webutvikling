@@ -20,12 +20,15 @@ export default function FilterDropdown() {
   };
 
   return (
-    <select name="filterDropdown" id="filterDropdown" value={filter} onChange={handleChange}>
+    <>
+    
+    <select aria-label = "Choose genre" name="filterDropdown" id="filterDropdown" value={filter} onChange={handleChange}>
       <option key={0} value={0}>All genres</option>
       {data?.genres.map((obj) => (
         <option key={obj.id} value={obj.id}>{obj.name}</option>
       ))}
     </select>
+    </>
   )
 }
 
