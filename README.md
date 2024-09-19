@@ -1,12 +1,12 @@
 # T16-Project-1
 
 ## Project Introduction
-Team 16 has created a webpage for viewing the top 20 rated movies from IMDb, using The Movie Database (TMDb) REST API: [The Movie Database](https://www.themoviedb.org/). The webpage consists of three main pages:
+Team 16 has created a website for viewing the top 20 rated movies from IMDb, using The Movie Database (TMDb) REST API: [The Movie Database](https://www.themoviedb.org/). The website consists of three main pages:
 - **Landing Page**: `/project1/`
 - **List View Page**: `/project1/listViewPage`
 - **Movie Detail Page**: `/project1/movie/:movieId`
 
-The **Landing Page** and **List View Page** are connected via a navigation bar, and users can click on any movie to view more detailed information.
+A navigation bar makes navigating between the **Landing Page** and the **List View Page** easy, and users can click on any movie to view more detailed information on the movie's own dedicated page. 
 
 ## How to Run the Project
 
@@ -50,6 +50,14 @@ The website uses a framework called **Vitest** to make sure that each part of th
 - **Mocking**: To make sure that testing the page doesn't overload the API from which the website pulls its data, **mocks** are used, a technique that lets the website be rendered with "fake" data, only used for testing.
 
 In addition, the website has also been tested manually, with different devices to make sure that it works for users across all platforms. 
+
+Tests have been made for the following pages and components:
+- **moviePage.tsx**
+- **swipePage.tsx**
+- **movieCard.tsx**
+- **likeButton.tsx**
+- **filterDropdown.tsx**
+- **errorMessage.tsx**
 
 ### Running tests
 To run the tests, simply navigate to the terminal and input the command:
