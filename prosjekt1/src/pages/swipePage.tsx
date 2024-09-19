@@ -41,7 +41,7 @@ const SwipePage = () => {
       <Header title={'Preview movies one by one'} instructions='Click on a movie for details about it' />
       <div className='swipe-container'>
         {isLoading ?
-          <p>Loading....</p> :
+          <p data-testid="loading-text">Loading....</p> :
           <>
             {isError ? <ErrorMessage message={error.message} /> :
               <>
