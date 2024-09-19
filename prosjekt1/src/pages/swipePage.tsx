@@ -3,6 +3,7 @@ import MovieCard from '../components/movieCard'
 import { useTopRatedMovies } from '../server/api'
 import '../styles/swipepage.css'
 import Header from '../components/header'
+import ErrorMessage from '../components/errorMessage'
 
 
 const SwipePage = () => {
@@ -37,12 +38,12 @@ const SwipePage = () => {
 
   return (
     <>
-    <Header title={'Preview movies one by one'} instructions='Click on a movie for details about it'/>
+      <Header title={'Preview movies one by one'} instructions='Click on a movie for details about it' />
       <div className='swipe-container'>
         {isLoading ?
           <p>Loading....</p> :
           <>
-            {isError ? error :
+            {isError ? <ErrorMessage message={error.message} /> :
               <>
                 <nav className='swipe-navigation'>
                   <button className="swipe-button" onClick={() => handleClick(true)} aria-label='Previous movie'>&lt;</button>

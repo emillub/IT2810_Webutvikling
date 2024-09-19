@@ -4,6 +4,7 @@ import { useTopRatedMovies } from '../server/api'
 import FilterDropdown from '../components/filterDropdown'
 import { useFilter } from '../contexts/filterContext'
 import Header from '../components/header'
+import ErrorMessage from '../components/errorMessage'
 
 const ListViewPage = () => {
 
@@ -13,35 +14,39 @@ const ListViewPage = () => {
 
 
   return (
-        <>
+    <>
 
-      <Header title={'Scroll through top rated movies'} instructions='Click on a movie for details about it'/>
-       <FilterDropdown />
+      <Header title={'Scroll through top rated movies'} instructions='Click on a movie for details about it' />
+      <FilterDropdown />
 
       {
         isLoading ?
-          <p>Loading...</p>
+          <p className='loading-message' role='loading-message'>Loading...</p>
           :
           <>
-          {isError ? { error } :
-            <section className='movie-grid'>
+            {isError ? <ErrorMessage message={error.message} /> :
+              <>
+                <section className='movie-grid'>
 
-              {data && (
-                data.results
-                  .filter((m) => m.genre_ids.includes(filter) || filter === 0)
+                  {data && (
+                    data.results
+                      .filter((m) => m.genre_ids.includes(filter) || filter === 0)
 
 
-                  .map((m, i) => (
-                    <MovieCard movie={m} key={i} />
-              )))}
+                      .map((m, i) => (
+                        <MovieCard movie={m} key={i} />
+                      )))}
 
-              {data && data.results.filter((m) => m.genre_ids.includes(filter) || filter === 0).length === 0 && (
-                <p className='noMatches'>No movies match the selected filter.</p>
-              )}
+                  {data && data.results.filter((m) => m.genre_ids.includes(filter) || filter === 0).length === 0 && (
+                    <p className='noMatches'>No movies match the selected filter.</p>
+                  )}
 
-            </section>
-          }
+                </section>
+
+              </>
+            }
           </>
+
       }
     </>
   )

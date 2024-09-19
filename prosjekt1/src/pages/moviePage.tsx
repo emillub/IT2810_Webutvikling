@@ -5,12 +5,13 @@ import { BASE_IMAGE_URL, fetchMovieGenres, movieApiInterface, useTopRatedMovies 
 import "../styles/moviePage.css";
 import { useParams } from "react-router-dom";
 import Header from "../components/header";
+import ErrorMessage from "../components/errorMessage";
 
 
 const MoviePage = () => {
     const [movie, setMovie] = useState<movieApiInterface>()
     const { movieId } = useParams();
-    const { data, isLoading } = useTopRatedMovies();
+    const { data, isLoading} = useTopRatedMovies();
 
     const { data: genresData } = useQuery({
         queryKey: ["genres"],
@@ -51,12 +52,15 @@ const MoviePage = () => {
                                 </p>
                                 <p>Release date: {movie.release_date}</p>
                                 <p>Original language: {movie.original_language}</p>
+                                <LikeButton itemId={Number(movieId)} />
                             </section>
-                            <LikeButton itemId={Number(movieId)} />
                         </>
                     }
+                    {!movie && <ErrorMessage message="No movie found" />}
+
                 </>
             }
+
         </div>
     );
 };

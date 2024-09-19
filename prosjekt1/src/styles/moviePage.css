@@ -33,6 +33,7 @@
     background: none;
     border: none;
     font-size: 4rem;
+    padding: 0px;
 }
 
 @media (min-width: 768px) {
@@ -49,5 +50,4 @@
         justify-content: center;
         padding: 20px;
     }
-
 }
