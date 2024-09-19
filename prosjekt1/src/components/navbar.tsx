@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
         <header>
             <nav>
                 <ul>
-                    <li><a href="/">Swipes</a></li>
+                    <li><a href="/project1">Swipes</a></li>
                     <li><a href="/project1/listViewPage">All movies</a></li>
                 </ul>
             </nav>
