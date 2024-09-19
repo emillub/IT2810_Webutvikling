@@ -4,7 +4,6 @@ import { render,screen } from "@testing-library/react"
 import MovieCard from './movieCard';
 import { movieApiInterface } from '../server/api';
 
-// Mock the LikeButton component
 vi.mock('./likeButton', () => ({
   default: ({itemId = 0}) => <button data-testid="like-button">{`Like ${itemId}`}</button>,
 }));

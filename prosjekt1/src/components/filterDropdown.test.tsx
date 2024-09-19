@@ -6,12 +6,10 @@ import FilterDropdown from './filterDropdown';
 import { fetchMovieGenres } from '../server/api';
 import { vi, Mock, } from 'vitest';
 import userEvent from '@testing-library/user-event';
-// Mock the useFilter hook
 vi.mock('../contexts/filterContext', () => ({
     useFilter: vi.fn(),
 }));
 
-// Mock the fetchMovieGenres function
 vi.mock('../server/api', () => ({
     fetchMovieGenres: vi.fn(),
 }));
