@@ -51,8 +51,8 @@ const MoviePage = () => {
                                 </p>
                                 <p>Release date: {movie.release_date}</p>
                                 <p>Original language: {movie.original_language}</p>
+                                <LikeButton itemId={Number(movieId)} />
                             </section>
-                            <LikeButton itemId={Number(movieId)} />
                         </>
                     }
                 </>
