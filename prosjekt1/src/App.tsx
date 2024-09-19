@@ -12,18 +12,15 @@ import {FilterProvider} from './contexts/filterContext';
 const queryClient = new QueryClient()
 
 function App() {
-
-  const baseUrl: string = "/project1";
-
   return (
     <>
       <FilterProvider>
       <QueryClientProvider client={queryClient}>
-        <Router>
+        <Router basename="/project1">
             <Routes>
-            <Route path={baseUrl + "/"} element={<Layout content={<SwipePage/>}/>} />
-            <Route path={baseUrl + "/listViewPage"} element={<Layout content={<ListViewPage/>}/>} />
-            <Route path={baseUrl + "/movie/:movieId"} element={<Layout content={<MoviePage/>}/>} />
+            <Route path={"/"} element={<Layout content={<SwipePage/>}/>} />
+            <Route path={"/listViewPage"} element={<Layout content={<ListViewPage/>}/>} />
+            <Route path={"/movie/:movieId"} element={<Layout content={<MoviePage/>}/>} />
             </Routes>
         </Router>
       </QueryClientProvider>
