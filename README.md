@@ -65,3 +65,5 @@ To run the tests, simply navigate to the terminal and input the command:
 npm run test
 ```
 
+## Todos
+- Add an option to view favourited movies.
