@@ -23,7 +23,7 @@ const LikeButton: React.FC<LikeButtonProps> = ({ itemId }) => {
   };
 
   return (
-    <button onClick={toggleLike} className={'like-button'}>
+    <button onClick={toggleLike} className={`like-button ${liked ? 'liked' : 'unliked'}`}>
       {liked ? '❤️' : '🤍'}
     </button>
   );

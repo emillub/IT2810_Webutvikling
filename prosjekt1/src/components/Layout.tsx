@@ -4,7 +4,6 @@ interface LayoutProps {
     content: React.ReactNode
 }
 export default function Layout({content}: LayoutProps) {
-
   return (
     <>
       <Navbar/>
