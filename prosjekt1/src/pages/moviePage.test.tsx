@@ -1,4 +1,3 @@
-''
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
@@ -24,7 +23,7 @@ describe('MoviePage', () => {
         (useTopRatedMovies as vi.Mock).mockReturnValue({ data: null, isLoading: true });
         (fetchMovieGenres as vi.Mock).mockResolvedValue({ genres: [] });
 
-        render(
+        const { container } = render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter initialEntries={['/movie/1']}>
                     <Routes>
@@ -35,6 +34,7 @@ describe('MoviePage', () => {
         );
 
         expect(screen.getByText('Loading...')).toBeInTheDocument();
+        expect(container).toMatchSnapshot();
     });
 
     it('renders movie details when data is available', async () => {
@@ -55,7 +55,7 @@ describe('MoviePage', () => {
         (useTopRatedMovies as vi.Mock).mockReturnValue({ data: { results: [mockMovie] }, isLoading: false });
         (fetchMovieGenres as vi.Mock).mockResolvedValue(mockGenres);
 
-        render(
+        const { container } = render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter initialEntries={['/movie/1']}>
                     <Routes>
@@ -71,13 +71,14 @@ describe('MoviePage', () => {
         expect(screen.getByText('Genres: Action')).toBeInTheDocument();
         expect(screen.getByText('Release date: 2023-01-01')).toBeInTheDocument();
         expect(screen.getByText('Original language: en')).toBeInTheDocument();
+        expect(container).toMatchSnapshot();
     });
 
     it('renders error message when no movie is found', async () => {
         (useTopRatedMovies as vi.Mock).mockReturnValue({ data: { results: [] }, isLoading: false });
         (fetchMovieGenres as vi.Mock).mockResolvedValue({ genres: [] });
 
-        render(
+        const { container } = render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter initialEntries={['/movie/1']}>
                     <Routes>
@@ -88,5 +89,6 @@ describe('MoviePage', () => {
         );
 
         expect(await screen.findByText('No movie found')).toBeInTheDocument();
+        expect(container).toMatchSnapshot();
     });
 });
