@@ -11,8 +11,11 @@ const SwipePage = () => {
 
   const handleClick = (left: boolean) => {
     let newIndex;
-    { left ? newIndex = index - 1 : newIndex = index + 1 }
-
+    if (left) {
+      newIndex = index - 1;
+  } else {
+      newIndex = index + 1;
+  }
     if (!data) return
     const rangeLimit = data.results.length - 1
     if (newIndex < 0) {

@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom/vitest';
-import { describe,it,expect,vi,beforeEach } from 'vitest'
+import { describe,it,expect,vi } from 'vitest'
 import { render,screen } from "@testing-library/react"
 import MovieCard from './movieCard';
-import { BASE_IMAGE_URL, movieApiInterface } from '../server/api';
+import { movieApiInterface } from '../server/api';
 
 // Mock the LikeButton component
 vi.mock('./likeButton', () => ({

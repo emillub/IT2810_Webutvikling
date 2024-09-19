@@ -4,7 +4,6 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { cleanup, render, screen } from "@testing-library/react"
 import SwipePage from './swipePage';
 import { movieApiInterface, useTopRatedMovies } from '../server/api';
-import ErrorMessage from '../components/errorMessage';
 import userEvent from '@testing-library/user-event';
 
 
