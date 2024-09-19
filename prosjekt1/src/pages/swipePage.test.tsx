@@ -46,7 +46,6 @@ describe('Swiping page', () => {
         render(<SwipePage />);
         userEvent.dblClick(screen.getByLabelText('Previous movie'));
         expect(screen.getByText(mockData.results[0].title)).toBeInTheDocument();
-        screen.debug()
     })
 
     it('Handles userinput', async ()=>{
@@ -64,13 +63,11 @@ describe('Swiping page', () => {
         expect(screen.getByText(mockData.results[0].title)).toBeInTheDocument();
         await userEvent.dblClick(nextButton);
         expect(screen.getByText(mockData.results[0].title)).toBeInTheDocument();
-        screen.debug()
 
         await userEvent.tripleClick(prevButton);
         expect(screen.getByText(mockData.results[1].title)).toBeInTheDocument();
         await userEvent.tripleClick(prevButton);
         expect(screen.getByText(mockData.results[0].title)).toBeInTheDocument();
-        screen.debug()
     })
 
     it('Stores and retrieves index from sessionStorage', async () => {

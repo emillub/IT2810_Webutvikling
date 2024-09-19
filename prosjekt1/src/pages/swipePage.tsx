@@ -10,7 +10,6 @@ const SwipePage = () => {
   const [index, setIndex] = useState(0)
 
   const handleClick = (left: boolean) => {
-    console.log("before: " + sessionStorage.getItem("index"))
     let newIndex;
     { left ? newIndex = index - 1 : newIndex = index + 1 }
 
@@ -24,8 +23,6 @@ const SwipePage = () => {
 
     setIndex(newIndex);
     sessionStorage.setItem("index", newIndex.toString())
-
-    console.log("after: " + sessionStorage.getItem("index"))
   }
 
   useEffect(() => {
