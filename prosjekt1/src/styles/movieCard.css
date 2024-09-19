@@ -4,7 +4,6 @@
     justify-content: center;
     flex-direction: column;
     max-width: 300px;
-    height: fit-content;
     overflow: hidden;
 }
 
@@ -27,7 +26,7 @@
 
 @media screen and (max-width:600px){
     .movie-title{
-        font-size: 14px;
+        font-size: .8rem;
     }
 }
 
@@ -46,8 +45,7 @@
 
 .movie-container .movie-poster{
     border-radius: 2px;
-    aspect-ratio: 2 / 3;
-    display: block;
+    display: flex;
     max-width: 100%;
     height: auto;
     z-index: 0;
@@ -60,9 +58,10 @@
     cursor: pointer;
 }
 
-.movie-container button{
+.movie-poster-container .like-button{
     z-index: 2;
     grid-area: overlap;
     height: 10%;
     align-self: end;
+    display: block;
 }
