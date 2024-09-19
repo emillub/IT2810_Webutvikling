@@ -1,0 +1,71 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MoviePage > renders error message when no movie is found 1`] = `
+<div>
+  <div
+    class="movie-page"
+  >
+    <p
+      class="error-message"
+      role="error-message"
+    >
+      No movie found
+    </p>
+  </div>
+</div>
+`;
+
+exports[`MoviePage > renders loading state initially 1`] = `
+<div>
+  <div
+    class="movie-page"
+  >
+    <p>
+      Loading...
+    </p>
+  </div>
+</div>
+`;
+
+exports[`MoviePage > renders movie details when data is available 1`] = `
+<div>
+  <div
+    class="movie-page"
+  >
+    <h1
+      class="page-title"
+    >
+      Test Movie
+    </h1>
+    <img
+      alt="Test Movie"
+      class="poster"
+      src="https://image.tmdb.org/t/p/w500/test.jpg"
+    />
+    <section
+      class="movieInfo"
+    >
+      <p>
+        Test overview
+      </p>
+      <p>
+        Genres: 
+        Action
+      </p>
+      <p>
+        Release date: 
+        2023-01-01
+      </p>
+      <p>
+        Original language: 
+        en
+      </p>
+      <button
+        class="like-button"
+      >
+        🤍
+      </button>
+    </section>
+  </div>
+</div>
+`;
