@@ -21,6 +21,7 @@ A navigation bar makes navigating between the **Landing Page** and the **List Vi
 
 ### Running on the VM
 The project is hosted on a web server on our Virtual Machine (VM). To access it:
+- You need to be connected to Eduroam on Campus
 - Go to: [http://it2810-16.idi.ntnu.no/project1/](http://it2810-16.idi.ntnu.no/project1/)
 
 ## Project Pages and Storage Usage
